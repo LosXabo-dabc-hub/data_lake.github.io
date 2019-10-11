@@ -1,28 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Earthquake Finder</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
-  
+  <meta charset="UTF-8">
+  <title>Earthquake Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Earthquakes
-           
-          </a>
-        </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="index.html">Earthquakes</a>
       </div>
-    </nav>
-    <div class="hero text-center">
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Earthquake News<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="News1.html">Earthquakes News in Americas</a></li>
+                <li><a href="News2.html">Earthquakes News in Asia</a></li>
+                <li><a href="News3.html">Earthquake News in South America</a></li>
+                <li><a href="News4.html">Earthquake News Worldwide</a></li> 
+            </ul>
+          </li>
+          <li><a href="maps.html">Earthquake Map</a></li>
+          <li><a href="pics.html">Earthquake Pictures</a></li>
+          <li><a href="data.html">Earthquake Data</a></li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <!-- Creates the Overall Grid -->
+  <div class="container">
+
       <h1>Earthquake Data Filtering</h1>
       <!-- <p>What's the frequency, Kenneth? The Truth is Out There</p> -->
     </div>
@@ -88,18 +113,27 @@
     </div>
     <footer class="footer">
       <span class="bottom">Earthquake Filter</span>
-    </footer>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-  <script src="static/js/data.js"></script>
-  <script src="static/js/app.js"></script>
-  
-  <script>
-	function resetForm() {
-    document.getElementById("myForm").reset();
-  }
-</script>
-  
-</body>
+    </footer> 
+​
+	
+​
+​
+		
+		
 
-</html>
+
+        
+
+
+    
+
+  </div>
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app.js"></script
+
+  </html>
