@@ -1,56 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
-  <meta charset="UTF-8">
-  <title>Earthquake Dashboard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Earthquake News in the Americas</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+​
+	
 </head>
-
+​
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        <a class="navbar-brand" href="index.html">Earthquakes</a>
-      </div>
+	<div class="container-fluid">
+		<div class="jumbotron text-center">
+			<h1>Earthquakes</h1>
+			<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Earthquake News</a></p>
+		</div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Earthquake News<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="News1.html">Earthquakes News in Americas</a></li>
-                <li><a href="News2.html">Earthquakes News in Asia</a></li>
-                <li><a href="News3.html">Earthquake News in South America</a></li>
-                <li><a href="News4.html">Earthquake News Worldwide</a></li> 
-            </ul>
-          </li>
-          <li><a href="maps.html">Earthquake Map</a></li>
-          <li><a href="pics.html">Earthquake Pictures</a></li>
-          <li><a href="data.html">Earthquake Data</a></li>
-          
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
+		 
 
-  <!-- Creates the Overall Grid -->
-  <div class="container">
-
-    <div class="row">
-
-        <h3>Latest Earthquake News in the Americas</h3>
+​
+​
+		<h3>Latest Earthquake News in the Americas</h3>
 		<p><span style="font-weight:bold">{{ mars_dict.news_title }}</span></p>
 		<p>{{ mars_dict.news_p }}</p>
 ​
@@ -126,41 +99,22 @@
 			</div>
 		</div>
 ​
+​
+​
+​
+​
+	</div>
 
-        
-
-      </div>
-
-    <div class="row">
-
-        <div class="col-md-6 pad top"> <br>
-
-          
-
-         
-
-        </div>
-
-        <div class="col-md-3 pad top"> <br>
-
-         
-
-       </div>
-
-       <div class="col-md-3 pad top"> <br>
+	
+​
+​
+	<br>
+	<br>
+​
+</body>
+​
+</html>
 
 
-      </div>
 
-    </div>
 
-    
-
-  </div>
-
-  </body>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  </html>
