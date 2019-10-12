@@ -20,13 +20,35 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/news2")
-def news2():
+@app.route("/news2r")
+def news2r():
     return render_template("news2.html")
 
-@app.route("/news1")
-def news1():
+@app.route("/new3r")
+def news3r():
+    return render_template("news3.html")
 
+@app.route("/new4r")
+def news4r():
+    return render_template("news4.html")
+
+@app.route("/data1")
+def data1():
+    return render_template("data.html")
+
+@app.route("/maps1")
+def maps1():
+    return render_template("maps.html")
+
+@app.route("/pics1")
+def pics1():
+    return render_template("pics.html")
+
+
+
+@app.route("/news1")
+
+def news1():
     # Find one record of data from the mongo database
     mission_data = mongo.db.collection.find_one()
 

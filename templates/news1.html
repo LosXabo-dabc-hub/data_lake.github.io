@@ -28,7 +28,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-					<a class="navbar-brand" href="/news1">Earthquakes</a>
+					<a class="navbar-brand" href="/">Earthquakes</a>
 				  </div>
 			
 				  <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,15 +37,16 @@
 					  <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Earthquake News<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="News1.html">Earthquakes News in Americas</a></li>
-							<li><a href="../news2.html">Earthquakes News in Asia</a></li>
-							<li><a href="../news3.html">Earthquake News in South America</a></li>
-							<li><a href="../news4.html">Earthquake News Worldwide</a></li> 
+							<li><a href="{{ url_for('news1') }}">Earthquakes News Scrape</a></li>
+							<li><a href="{{ url_for('news2r') }}">Earthquakes Two</a></li>
+							<li><a href="{{ url_for('news3r') }}">Earthquake News in South America</a></li>
+							<li><a href="{{ url_for('news4r') }}">Earthquake News Worldwide</a></li>
+							<!-- <li><a href="News5.html">Earthquake Test Bed</a></li>  -->
 						</ul>
 					  </li>
-					  <li><a href="../maps.html">Earthquake Map</a></li>
-					  <li><a href="../pics.html">Earthquake Pictures</a></li>
-					  <li><a href="../data.html">Earthquake Data</a></li>
+					  <li><a href="{{ url_for('maps1') }}">Earthquake Map</a></li>
+					  <li><a href="{{ url_for('pics1') }}">Earthquake Pictures</a></li>
+					  <li><a href="{{ url_for('data1') }}">Earthquake Data</a></li>
 					  
 					</ul>
 				  </div>

@@ -29,15 +29,15 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Earthquake News<span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="{{ url_for('news1') }}">Earthquakes News Scrape</a></li>
-                <li><a href="{{ url_for('news2') }}">Earthquakes Two</a></li>
-                <li><a href="News3.html">Earthquake News in South America</a></li>
-                <li><a href="News4.html">Earthquake News Worldwide</a></li>
-                <li><a href="News5.html">Earthquake Test Bed</a></li> 
+                <li><a href="{{ url_for('news2r') }}">Earthquakes Two</a></li>
+                <li><a href="{{ url_for('news3r') }}">Earthquake News in South America</a></li>
+                <li><a href="{{ url_for('news4r') }}">Earthquake News Worldwide</a></li>
+                <!-- <li><a href="News5.html">Earthquake Test Bed</a></li>  -->
             </ul>
           </li>
-          <li><a href="maps.html">Earthquake Map</a></li>
-          <li><a href="pics.html">Earthquake Pictures</a></li>
-          <li><a href="data.html">Earthquake Data</a></li>
+          <li><a href="{{ url_for('maps1') }}">Earthquake Map</a></li>
+          <li><a href="{{ url_for('pics1') }}">Earthquake Pictures</a></li>
+          <li><a href="{{ url_for('data1') }}">Earthquake Data</a></li>
           
         </ul>
       </div>
