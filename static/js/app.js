@@ -1,4 +1,4 @@
-// from data.js
+// from quakes.js
 var tableData = data;
 
 // YOUR CODE HERE!
@@ -25,32 +25,32 @@ function buildtable(somedata){
 
 //Function to filter data by date
 function handleClick(){
-    var date =d3.select("#datetime").property("value");
-	var city =d3.select("#city").property("value");
-	var state =d3.select("#state").property("value");
-	var country =d3.select("#country").property("value");	
-	var shape =d3.select("#shape").property("value");	
+    var DateTime =d3.select("#DateTime").property("value");
+	var EventID =d3.select("#EventID").property("value");
+	var Depth =d3.select("#Depth").property("value");
+	var Magnitude =d3.select("#Magnitude").property("value");	
+	var NbStations =d3.select("#NbStations").property("value");	
 
     let filteredData = tableData;
 
-    if (date) {
-        filteredData = filteredData.filter( element => element.datetime === date);
+    if (DateTime) {
+        filteredData = filteredData.filter( element => element.DateTime === DateTime);
     }
 
-    if (city) {
-        filteredData = filteredData.filter( element => element.city === city);
+    if (EventID) {
+        filteredData = filteredData.filter( element => element.EventID === EventID);
     }
 
-    if (state) {
-        filteredData = filteredData.filter( element => element.state === state);
+    if (Depth) {
+        filteredData = filteredData.filter( element => element.depth === Depth);
     }
 
-    if (country) {
-        filteredData = filteredData.filter( element => element.country === country);
+    if (Magnitude) {
+        filteredData = filteredData.filter( element => element.Magnitude == Magnitude);
     }
 
-    if (shape) {
-        filteredData = filteredData.filter( element => element.shape === shape);
+    if (NbStations) {
+        filteredData = filteredData.filter( element => element.NbStations === NbStations);
     }
 
     buildtable(filteredData);
@@ -59,7 +59,7 @@ function handleClick(){
 
 //Function to reset data
 function resetClick(){
-    var date =d3.select("#datetime").property("value");
+    var date =d3.select("#DateTime").property("value");
     let filteredData = tableData;
 	
 //    if (date) {

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Earthquake Dashboard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
@@ -62,24 +62,24 @@
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="ex: 1/11/2011">
+                        <label for="DateTime">Enter a Date</label>
+                        <input class="form-control" id="DateTime" type="text" placeholder="ex: 1/11/2011">
                       </li>
 					  <li class="filter list-group-item">
-                        <label for="city">Enter a City</label>
-                        <input class="form-control" id="city" type="text" placeholder="ex: bonita">
+                        <label for="EventID">Enter an Event ID</label>
+                        <input class="form-control" id="EventID" type="text" placeholder="ex: 1970010640.0">
                       </li>
 					  <li class="filter list-group-item">
-                        <label for="state">Enter a State</label>
-                        <input class="form-control" id="state" type="text" placeholder="ex: ca">
+                        <label for="Depth">Enter a Depth</label>
+                        <input class="form-control" id="Depth" type="text" placeholder="ex: 80.0">
                       </li>
 					  <li class="filter list-group-item">
-                        <label for="country">Enter a Country</label>
-                        <input class="form-control" id="country" type="text" placeholder="ex: us">
+                        <label for="Magnitude">Enter a Magnitude</label>
+                        <input class="form-control" id="Magnitude" type="text" placeholder="ex: 6.1">
                       </li>
 					  <li class="filter list-group-item">
-                        <label for="shape">Enter a Shape</label>
-                        <input class="form-control" id="shape" type="text" placeholder="ex: circle">
+                        <label for="NbStations">Enter a NB Station</label>
+                        <input class="form-control" id="NbStations" type="text" placeholder="ex: 199">
                       </li>
                     </ul>
                   </div>
@@ -97,12 +97,18 @@
               <thead>
                 <tr>
                   <th class="table-head">Date</th>
-                  <th class="table-head">City</th>
-                  <th class="table-head">State</th>
-                  <th class="table-head">Country</th>
-                  <th class="table-head">Shape</th>
-                  <th class="table-head">Duration</th>
-                  <th class="table-head">Comments</th>
+                  <th class="table-head">Latitude</th>
+                  <th class="table-head">Longitude</th>
+                  <th class="table-head">Depth</th>
+                  <th class="table-head">Magnitude</th>
+                  <th class="table-head">MagType</th>
+                  <th class="table-head">NbStations</th>
+                  <th class="table-head">Gap</th>
+                  <th class="table-head">Distance</th>
+                  <th class="table-head">RMS</th>
+                  <th class="table-head">Source</th>
+                  <th class="table-head">EventID</th>
+                  
                 </tr>
               </thead>
               <tbody></tbody>
@@ -114,19 +120,6 @@
     <footer class="footer">
       <span class="bottom">Earthquake Filter</span>
     </footer> 
-​
-	
-​
-​
-		
-		
-
-
-        
-
-
-    
-
   </div>
 
   </body>
@@ -134,6 +127,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="static/js/data.js"></script>
-  <script src="static/js/app.js"></script
+  <script src="static/js/app.js"></script>
+
+  <script>
+      function resetForm() {
+        document.getElementById("myForm").reset();
+      }
+    </script>
 
   </html>
