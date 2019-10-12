@@ -34,15 +34,15 @@ function handleClick(){
     let filteredData = tableData;
 
     if (DateTime) {
-        filteredData = filteredData.filter( element => element.DateTime === DateTime);
+        filteredData = filteredData.filter( element => element.DateTime == DateTime);
     }
 
     if (EventID) {
-        filteredData = filteredData.filter( element => element.EventID === EventID);
+        filteredData = filteredData.filter( element => element.EventID == EventID);
     }
 
     if (Depth) {
-        filteredData = filteredData.filter( element => element.depth === Depth);
+        filteredData = filteredData.filter( element => element.depth == Depth);
     }
 
     if (Magnitude) {
@@ -50,7 +50,7 @@ function handleClick(){
     }
 
     if (NbStations) {
-        filteredData = filteredData.filter( element => element.NbStations === NbStations);
+        filteredData = filteredData.filter( element => element.NbStations == NbStations);
     }
 
     buildtable(filteredData);
