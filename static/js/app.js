@@ -42,7 +42,7 @@ function handleClick(){
     }
 
     if (Depth) {
-        filteredData = filteredData.filter( element => element.depth == Depth);
+        filteredData = filteredData.filter( element => element.Depth == Depth);
     }
 
     if (Magnitude) {
