@@ -16,7 +16,7 @@ def scrape_info():
 
     ###NASA MARS NEWS
     # Visit the following URL
-    url = "https://mars.nasa.gov/news/"
+    url = "https://www.indiatoday.in/earthquake-indiatoday?page=1&view_type=list"
     browser.visit(url)
     time.sleep(2)
     # Scrape page into Soup
@@ -24,8 +24,10 @@ def scrape_info():
     soup = bs(html, "html.parser")
 
     # Get latest NASA Mars news title and teaser
-    news_title = soup.find('div', class_='content_title').text
-    news_p = soup.find('div', class_="article_teaser_body").text
+    news_title = soup.find('div', class_='detail').text
+    #news_title = soup.find('div', class_='content_title').text
+    #news_p = soup.find('div', class_="article_teaser_body").text
+    news_p = soup.find('div', class_='view view-category-wise-content-list view-id-category_wise_content_list view-display-id-section_wise_content_listing view-dom-id- custom').text
 
 
  
