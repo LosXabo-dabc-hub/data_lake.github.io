@@ -6,17 +6,25 @@ var platesJSON = "https://raw.githubusercontent.com/fraxen/tectonicplates/master
 //var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson"
 
 //var query2 = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
-
+var queryVolcanoUrl = "https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json"
 
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(data) {
   // Perform a GET request to the query URL
   d3.json(platesJSON, function(data2) {
-    createFeatures(data.features, data2.features);
+    // Perform a GET request to the query URL
+    d3.json(queryVolcanoUrl, function(data3) {
+      // Perform a GET request to the query URL
+      createFeatures(data.features, data2.features, data3.features);
+      })
     })
-    
 });
 
+// // Perform a GET request to the query URL
+// d3.json(queryVolcanoUrl, function(data3) {
+//   // Perform a GET request to the query URL
+//   createFeatures(data.features, data2.features, data3.features);
+// });
 
 //return color based on value
   function getColor(x) {
@@ -30,7 +38,7 @@ d3.json(queryUrl, function(data) {
   }
 
 
-function createFeatures(earthquakeData, plateData) {
+function createFeatures(earthquakeData, plateData, volcanoData) {
 
   // Give each feature a popup describing the place and time of the earthquake
   function onEachFeature(feature, layer) {
@@ -39,54 +47,72 @@ function createFeatures(earthquakeData, plateData) {
       "</h3><hr><p>Magnitude: " + feature.properties.mag + "</p>");
   }
 
-  
+  function onEachFeatureV(feature, layer) {
+    layer.bindPopup("<h3>" + feature.properties.V_Name +
+      "</h3><hr><p>Country: " + feature.properties.Country + "</p>" +
+      "</h3><hr><p>Region: " + feature.properties.Region + "</p>" +
+      "</h3><hr><p>Population Expose Index (PEI): " + feature.properties.PEI + "<br>Scale:1 to 7 (ex. 7 >300,000)</p>");
+  }
+
+
   // Create a GeoJSON layer containing the features array on the earthquakeData object
   // Run the onEachFeature function once for each piece of data in the array
   var earthquakes = L.geoJSON(earthquakeData, {
-        onEachFeature: onEachFeature,
-        pointToLayer: function (feature, latlng) {
-      
-          var geojsonMarkerOptions = {
-            radius: +feature.properties.mag*4,
-            fillColor: getColor(feature.properties.mag),
-            color: "black",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-          };
-          return L.circleMarker(latlng, geojsonMarkerOptions);
-        }
+    onEachFeature: onEachFeature,
+    pointToLayer: function (feature, latlng) {
+  
+      var geojsonMarkerOptions = {
+        radius: +feature.properties.mag*4,
+        fillColor: getColor(feature.properties.mag),
+        color: "black",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+      };
+      return L.circleMarker(latlng, geojsonMarkerOptions);
+    }
     
   });
 
- // console.log(earthquakes);
+  var volcanos = L.geoJSON(volcanoData, {
+    onEachFeature: onEachFeatureV,
+    pointToLayer: function (feature, latlng) {
+        var geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: "black",
+        color: "red",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+      };
+      return L.circleMarker(latlng, geojsonMarkerOptions);
+    }
+
+  });
+
+  // console.log(volcanos);
 
   var plates = L.geoJson(plateData, {
-
-
-    style: function(feature){
+    style: function(){
       return {
           color:"orange",
           fillColor: "white",
           fillOpacity:0
       }
-  }, 
-
-
-
+    }, 
     onEachFeature: function (feature, layer) {
       layer.bindPopup("<h3>" + feature.properties.PlateName + "</h3>");
     }
   });
 
-  console.log(plates);
+  // console.log(plates);
 
   // Sending our earthquakes layer to the createMap function
-  createMap(earthquakes, plates);
+  createMap(earthquakes, plates, volcanos);
   
 }
 
-function createMap(earthquakes, plates) {
+function createMap(earthquakes, plates, volcanos) {
 
   // Define streetmap and darkmap layers
 //  var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
@@ -118,7 +144,8 @@ function createMap(earthquakes, plates) {
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
     Earthquakes: earthquakes,
-    Plates: plates
+    Plates: plates,
+    Volcanos: volcanos
   };
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load
@@ -141,7 +168,7 @@ function createMap(earthquakes, plates) {
     },
 
     
-    layers: [streetmap, earthquakes, plates]
+    layers: [streetmap, earthquakes, plates, volcanos]
   });
 
 // Pass our map layers into our layer control
