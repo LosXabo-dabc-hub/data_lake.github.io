@@ -8,6 +8,8 @@ var platesJSON = "https://raw.githubusercontent.com/fraxen/tectonicplates/master
 //var query2 = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
 var queryVolcanoUrl = "https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json"
 
+var oilFieldsJSON = "https://raw.githubusercontent.com/carnegieendowment/oil-climate-index-2/master/app/assets/data/oilfields.geojson"
+
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(data) {
   // Perform a GET request to the query URL
@@ -15,7 +17,10 @@ d3.json(queryUrl, function(data) {
     // Perform a GET request to the query URL
     d3.json(queryVolcanoUrl, function(data3) {
       // Perform a GET request to the query URL
-      createFeatures(data.features, data2.features, data3.features);
+      d3.json(oilFieldsJSON, function(data4) {
+        // Perform a GET request to the query URL
+        createFeatures(data.features, data2.features, data3.features, data4.features);
+        })
       })
     })
 });
@@ -38,7 +43,7 @@ d3.json(queryUrl, function(data) {
   }
 
 
-function createFeatures(earthquakeData, plateData, volcanoData) {
+function createFeatures(earthquakeData, plateData, volcanoData, oilfieldData) {
 
   // Give each feature a popup describing the place and time of the earthquake
   function onEachFeature(feature, layer) {
@@ -107,12 +112,26 @@ function createFeatures(earthquakeData, plateData, volcanoData) {
 
   // console.log(plates);
 
+  var oilfields = L.geoJson(oilfieldData, {
+    style: function(){
+      return {
+          color:"blue",
+          fillColor: "white",
+          fillOpacity:0
+      }
+    }, 
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup("<h3>" + feature.properties.Field_Name + "</h3>");
+    }
+  });
+
+
   // Sending our earthquakes layer to the createMap function
-  createMap(earthquakes, plates, volcanos);
+  createMap(earthquakes, plates, volcanos, oilfields);
   
 }
 
-function createMap(earthquakes, plates, volcanos) {
+function createMap(earthquakes, plates, volcanos, oilfields) {
 
   // Define streetmap and darkmap layers
 //  var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
@@ -145,7 +164,8 @@ function createMap(earthquakes, plates, volcanos) {
   var overlayMaps = {
     Earthquakes: earthquakes,
     Plates: plates,
-    Volcanos: volcanos
+    Volcanos: volcanos,
+    Oil_Fields: oilfields
   };
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load
@@ -168,7 +188,7 @@ function createMap(earthquakes, plates, volcanos) {
     },
 
     
-    layers: [streetmap, earthquakes, plates, volcanos]
+    layers: [streetmap, earthquakes, plates, volcanos, oilfields]
   });
 
 // Pass our map layers into our layer control

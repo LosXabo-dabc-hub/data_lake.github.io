@@ -45,7 +45,6 @@ def pics1():
     return render_template("pics.html")
 
 
-
 @app.route("/news1")
 
 def news1():
