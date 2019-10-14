@@ -56,7 +56,7 @@ function createFeatures(earthquakeData, plateData, volcanoData, oilfieldData) {
     layer.bindPopup("<h3>" + feature.properties.V_Name +
       "</h3><hr><p>Country: " + feature.properties.Country + "</p>" +
       "</h3><hr><p>Region: " + feature.properties.Region + "</p>" +
-      "</h3><hr><p>Population Expose Index (PEI): " + feature.properties.PEI + "<br>Scale:1 to 7 (ex. 7 >300,000)</p>");
+      "</h3><hr><p>Population Exposure Index (PEI): " + feature.properties.PEI + "<br>Scale:1 to 7 (ex. 7 >300,000)</p>");
   }
 
 

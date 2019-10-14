@@ -86,18 +86,21 @@
 **********************************/
 
 // load data from a csv file
-d3.csv("quakes.csv", function (data) {
-
-  // format our data
-  var dtgFormat = d3.time.format("%Y-%m-%dT%H:%M:%S");
+d3.csv("quakes.csv").then(function (data) {
   
-  data.forEach(function(d) { 
+  //console.log(data[0]);
+  // format our data
+  let dtgFormat = d3.timeFormat("%Y-%m-%dT%H:%M:%S");
+  //var timeFormat = d3.timeFormat('%H:%M:%S %L');
+  
+  data.forEach(function(d){ 
     d.dtg   = dtgFormat.parse(d.origintime.substr(0,19)); 
     d.lat   = +d.latitude;
     d.long  = +d.longitude;
     d.mag   = d3.round(+d.magnitude,1);
     d.depth = d3.round(+d.depth,0);
-  });
+  })
+  
 
 /******************************************************
 * Step1: Create the dc.js chart objects & ling to div *
@@ -201,8 +204,8 @@ d3.csv("quakes.csv", function (data) {
       function(d) { return d.long; },
       function(d) { return d.depth; },
       function(d) { return d.mag; },
-	  function(d) { return '<a href=\"http://maps.google.com/maps?z=11&t=m&q=loc:' + d.lat + '+' + d.long +"\" target=\"_blank\">Google Map</a>"},
-	  function(d) { return '<a href=\"http://www.openstreetmap.org/?mlat=' + d.lat + '&mlon=' + d.long +'&zoom=11'+ "\" target=\"_blank\"> OSM Map</a>"}
+	    function(d) { return '<a href=\"http://maps.google.com/maps?z=11&t=m&q=loc:' + d.lat + '+' + d.long +"\" target=\"_blank\">Google Map</a>"},
+	    function(d) { return '<a href=\"http://www.openstreetmap.org/?mlat=' + d.lat + '&mlon=' + d.long +'&zoom=11'+ "\" target=\"_blank\"> OSM Map</a>"}
     ])
     .sortBy(function(d){ return d.dtg; })
     .order(d3.ascending);

@@ -4,8 +4,8 @@
 **********************************/
 
 // load data from a csv file
-d3.csv("quakes.csv", function (data) {
-
+d3.csv("quakes.csv").then(function (data) {
+  console.log(data);
   // format our data
   var dtgFormat = d3.time.format("%Y-%m-%dT%H:%M:%S");
   
