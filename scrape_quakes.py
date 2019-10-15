@@ -7,7 +7,7 @@ import pandas as pd
 
 def init_browser():
     # @NOTE: Path to my chromedriver
-    executable_path = {"executable_path": r"c:\\Users\\mwals\\Desktop\chromedriver"}
+    executable_path = {"executable_path": r"chromedriver"}
     return Browser("chrome", **executable_path, headless=False)
 
 
