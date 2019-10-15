@@ -19,6 +19,9 @@ def home():
     # Return template and data
     return render_template("index.html")
 
+@app.route("/aboutr")
+def aboutr():
+    return render_template("about.html")
 
 @app.route("/news2r")
 def news2r():

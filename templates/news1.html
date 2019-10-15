@@ -53,15 +53,15 @@
 <body>
 		<div class="container-fluid">
 			<div class="jumbotron text-center">
-				<h1>Mission to Mars</h1>
+				<h1>Earthquake News</h1>
 				<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
 			</div>
-			<h3>Latest Mars News</h3>
+			<h3>Latest Earthquake News</h3>
 			<p><span style="font-weight:bold">{{ trek.news_title }}</span></p>
 			<p>{{ trek.news_p }}</p>
 			<div class="row">
 				<div class="col-xs-8 col-md-8">
-					<h3>Featured Mars Image: {{ trek.featured_img_title }}</h3>
+					<h3>Image: {{ trek.featured_img_title }}</h3>
 					<img src="{{ trek.featured_image_url | default('static/images/error.png')}}" style="width:100%" class="img-responsive"
 						style="padding-right: 20px; padding left: 20px;" alt="featured_image"><br />
 					<!-- <a href="{{ trek.featured_image_url}}">{{ trek.featured_image_url}}</a>
@@ -70,12 +70,12 @@
 				<div class="col-xs-4 col-md-4" >
 					<div class="col-xs-auto col-md-auto" style="border:1px; border-style:solid; border-color:#C0C0C0; padding: 1em;" ><span style="width:auto"  >
 						
-						<h3>Current Weather on Mars</h3>
+						<h3>TBD Scraped Earthquake Data</h3>
 						<p> {{ trek.mars_weather }} </p>
 					</span>
 					</div>
 					<div class="col-xs-auto col-md-auto">
-						<h3>Mars Facts</h3>
+						<h3>TBD Scraped Quake Facts</h3>
 						<style>
 							table, th, td {border: 1px solid black;}
 							th, td {padding: 5px;}
@@ -86,10 +86,10 @@
 				</div>
 			</div>
 			<br>
-			<h3 class="text-center">Mars Hemispheres</h3>
+			<h3 class="text-center">Earthquakes</h3>
 			<br>
 			<div class="row">
-				<div class="col-xs-6 col-md-6">
+				<!-- <div class="col-xs-6 col-md-6">
 					<img src="{{ trek.hemisphere_image_urls[3]['img_url'] | default('static/images/error.png')}}" style="width:100%" class="img-responsive"
 						style="padding-right: 20px; padding left: 20px;"
 						alt=" {{trek.hemisphere_image_urls[3]['title']}} " />
@@ -100,11 +100,11 @@
 						style="padding-right: 20px; padding left: 20px;"
 						alt=" {{trek.hemisphere_image_urls[0]['title'] }} " />
 					<h5>{{trek.hemisphere_image_urls[0]['title']}}</h5>
-				</div>
+				</div> -->
 			</div>
 	
 			<div class="row">
-				<div class="col-xs-6 col-md-6">
+				<!-- <div class="col-xs-6 col-md-6">
 					<img src="{{ trek.hemisphere_image_urls[1]['img_url'] | default('static/images/error.png') }}" style="width:100%" class="img-responsive"
 						style="padding-right: 20px; padding left: 20px;"
 						alt=" {{trek.hemisphere_image_urls[1]['title']}} " />
@@ -115,7 +115,7 @@
 						style="padding-right: 20px; padding left: 20px;"
 						alt=" {{trek.hemisphere_image_urls[2]['title']}} " />
 					<h5>{{trek.hemisphere_image_urls[2]['title']}}</h5>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		

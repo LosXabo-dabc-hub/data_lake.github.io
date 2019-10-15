@@ -14,47 +14,70 @@ def init_browser():
 def scrape_info():
     browser = init_browser()
 
-    ###NASA MARS NEWS
+    ###QUAKE NEWS
     # Visit the following URL
-    url = "https://mars.nasa.gov/news/"
+    url = "https://www.indiatoday.in/earthquake-indiatoday?page=1&view_type=list"
     browser.visit(url)
     time.sleep(2)
+    xpath = '//*[@id="content"]/div[3]/div[1]/div[1]/div[2]/h2/a'
+    # xpath for image
+    results = browser.find_by_xpath(xpath)
+    img = results[0]
+    img.click()
+    time.sleep(3)
+
+
     # Scrape page into Soup
     html = browser.html
     soup = bs(html, "html.parser")
 
     # Get latest NASA Mars news title and teaser
-    news_title = soup.find('div', class_='content_title').text
-    news_p = soup.find('div', class_="article_teaser_body").text
+    #news_title = soup.find('div', class_='content_title').text
+    #news_p = soup.find('div', class_="article_teaser_body").text
 
 
+    news_title_section = soup.find('div', class_='node node-story view-mode-full')
+    news_title = news_title_section.find('h1', itemprop="headline").text
+
+    time.sleep(2)
+    news_p = soup.find('div', class_="story-kicker").text
+
+
+
+    img_desc = soup.find('div', class_="stryimg")
+    image = img_desc.find('img')
+    featured_image_url = image['src']
+    featured_img_title = image['alt']
+
+
+    
  
     ###JPL Mars Space Images - FEATURED IMAGE
     # Visit the following URL
-    url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
-    jpl = "https://www.jpl.nasa.gov"
-    browser.visit(url)
-    time.sleep(3)
+    # url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
+    # jpl = "https://www.jpl.nasa.gov"
+    # browser.visit(url)
+    # time.sleep(3)
 
-    # xpath for image
-    xpath = '//*[@id="full_image"]'
+    # # xpath for image
+    # xpath = '//*[@id="full_image"]'
 
-    # Use splinter to Click the image to bring up the full resolution image
-    results = browser.find_by_xpath(xpath)
-    img = results[0]
-    img.click()
-    time.sleep(3)
-    # Scrape page into Soup
-    html = browser.html
-    soup = bs(html, "html.parser")
+    # # Use splinter to Click the image to bring up the full resolution image
+    # results = browser.find_by_xpath(xpath)
+    # img = results[0]
+    # img.click()
+    # time.sleep(3)
+    # # Scrape page into Soup
+    # html = browser.html
+    # soup = bs(html, "html.parser")
 
-    img_desc = soup.find('div', class_="fancybox-inner fancybox-skin fancybox-dark-skin fancybox-dark-skin-open")
-    image = img_desc.find('img')
-    image['src']
+    # img_desc = soup.find('div', class_="fancybox-inner fancybox-skin fancybox-dark-skin fancybox-dark-skin-open")
+    # image = img_desc.find('img')
+    # image['src']
     
-    title_fea = soup.find('article')
-    featured_img_title = title_fea['alt']
-    featured_image_url = jpl + image['src']
+    # title_fea = soup.find('article')
+    # featured_img_title = title_fea['alt']
+    # featured_image_url = jpl + image['src']
     
     
     #### MARS WEATHER
