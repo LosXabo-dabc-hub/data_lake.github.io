@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Earthquake Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="index.html">Earthquakes</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Earthquake News<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ url_for('news1') }}">Earthquakes News Scrape</a></li>
+                <li><a href="{{ url_for('news2r') }}">Earthquakes Two</a></li>
+                <li><a href="{{ url_for('news3r') }}">Earthquake News in South America</a></li>
+                <li><a href="{{ url_for('news4r') }}">Earthquake News Worldwide</a></li>
+                <!-- <li><a href="News5.html">Earthquake Test Bed</a></li>  -->
+            </ul>
+          </li>
+          <li><a href="{{ url_for('maps1') }}">Earthquake Map</a></li>
+          <li><a href="{{ url_for('pics1') }}">Earthquake Pictures</a></li>
+          <li><a href="{{ url_for('data1') }}">Earthquake Data</a></li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <!-- Creates the Overall Grid -->
+  <div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6 pad top"> <br>
+          <h3>Summary: Earthquakes in our lives</h3> <br>
+        </div>
+
+        <div class="col-md-6 pad top"> <br>
+          <h3>Earthquake in the news</h3> <br>
+        </div>
+
+      </div>
+
+    <div class="row">
+
+        <div class="col-md-6 pad top"> <br>
+
+          <div class="pull-left">
+              <img src="/input/Fig1.png" alt="Earthquakes In our Life" width="200" height="175">
+          </div>
+
+          <div class="text-left">
+            <p> The purpose of this project was to analyze how Earthquakes affects us.  To accomplish this analysis, we first pulled data from numerous sources
+                such as the US Geological Survey, news sites around the world and a 24 year trove of earthquake activity. </p> <br>
+            <p> After assembling the dataset, D3 and Leaflet was used to plot earthquakes worldwide with infrastructure and hazardous correlation layers. This has the added 
+                benefit of functionality to animate all fourty four years of timeline.
+                All fourty four years of worldwide earthquake data is searchable to vistors of the website. 
+                Additionally, some of the most popular earthquake information is web scrapable upon demand by user with the click of a button.
+                Future interations of this website will include machine learning data which will try to predict future earthquakes based
+                upon previous earthquake data. </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 pad top"> <br>
+
+          <div class="pull-right">
+            <a href="pics.html"><img src="/input/Fig2.png" alt="Pictures of Earthquakes" width="100%" height="100%"></a>
+            <a href="maps.html"><img src="/input/Fig3.png" alt="Mapping of Earthquakes" width="100%" height="100%"></a>
+          </div>
+
+       </div>
+
+       <div class="col-md-3 pad top"> <br>
+
+        <div class="pull-right">
+          <a href="data.html"><img src="/input/Fig4.png" alt="Earthquake Data Visualizations" width="100%" height="100%"></a>
+          <a href="news1.html"><img src="/input/Fig5.png" alt="Earthquake News" width="100%" height="100%"></a>
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+  </div>
+
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </html>
