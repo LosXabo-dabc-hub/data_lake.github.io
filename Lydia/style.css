@@ -36,11 +36,11 @@
 
 
   /* Container needed to position the overlay. Adjust the width as needed */
-.container {
+/* .container {
     position: relative;
     width: 50%;
   }
-  
+   */
   /* Make the image to responsive */
   .image {
     width:auto;
@@ -91,32 +91,35 @@
 }
 
 /* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 500px) {
   .column {
-    width: 100%;
+    width: 75%;
     display: block;
   }
 }
 
 /* Add some shadows to create a card effect */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(105, 153, 201, 0.89);
+  background-color: #F0F8FF;
+  border-block-color: #F0F8FF ;
 }
 
 /* Some left and right padding inside the container */
 .container {
   padding: 0 16px;
+  background-color:#7D9EC0 ;
 }
 
 /* Clear floats */
 .container::after, .row::after {
-  content: "";
+  content: "Data Lake";
   clear: both;
   display: table;
 }
 
 .title {
-  color: black;
+  color:#000 ;
 }
 
 .button {
@@ -125,10 +128,10 @@
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: #000;
+  background-color:#708090;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
 }
 
 .button:hover {
@@ -140,7 +143,7 @@
 /* Title for hp over image */
 h1.title {
   color: #fed931;
-  font: 28px verlag-book, san-serif;
+  font: 28px ITC Stone Sans II Com ;
   padding: 0px 80px 0px 0px;
 }
 
@@ -149,13 +152,32 @@ h1.title {
   position: relative;
   text-align: center;
   color: white;
+  font-family: stone san;
 }
 .bottom-left {
   position: absolute;
   bottom: 8px;
   left: 16px;
-  color: #fed931;
-  font: 28px verlag-book, san-serif;
+  color: #0099CC;
+  font: 28px  ITC Stone Sans II Com, Condensed, Semibold ;
+  padding: 0px 80px 0px 0px;
+}
+
+.container5 {
+  position: relative;
+  text-align: center;
+  color: white;
+  font: 28px; 
+  font:ITC Stone Sans II, condensed; 
+  /* type="text" value="ITC Stone Sans II" */
+
+}
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: #0099CC;
+  font: 28px,  ITC Stone Sans II Com, Condensed, Semibold ;
   padding: 0px 80px 0px 0px;
 }
 /* Logo */
