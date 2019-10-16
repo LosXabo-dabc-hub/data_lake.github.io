@@ -10,6 +10,8 @@ var queryVolcanoUrl = "https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-
 
 var oilFieldsJSON = "https://raw.githubusercontent.com/carnegieendowment/oil-climate-index-2/master/app/assets/data/oilfields.geojson"
 
+
+
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(data) {
   // Perform a GET request to the query URL
