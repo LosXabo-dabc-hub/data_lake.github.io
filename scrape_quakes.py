@@ -16,7 +16,7 @@ def scrape_info():
 
     ###QUAKE NEWS
     # Visit the following URL
-    url = "https://www.indiatoday.in/earthquake-indiatoday?page=1&view_type=list"
+    url = "https://www.indiatoday.in/earthquake-indiatoday?view_type=list"
     browser.visit(url)
     time.sleep(2)
     xpath = '//*[@id="content"]/div[3]/div[1]/div[1]/div[2]/h2/a'
