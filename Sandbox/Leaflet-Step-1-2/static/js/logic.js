@@ -153,11 +153,24 @@ function createMap(earthquakes, plates, volcanos, oilfields) {
     accessToken: API_KEY
   });
 
+var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+	maxZoom: 13
+});
+
+var JusticeMap_income = L.tileLayer('http://www.justicemap.org/tile/{size}/income/{z}/{x}/{y}.png', {
+	attribution: '<a href="http://www.justicemap.org/terms.php">Justice Map</a>',
+	size: 'county',
+	opacity: .5,
+	bounds: [[14, -180], [72, -56]]
+});
 
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
     "Street Map": streetmap,
-    "Satellite Map": satmap
+    "Satellite Map": satmap,
+	"Ocean Basemap": Esri_OceanBasemap
+
   };
 
   // Create overlay object to hold our overlay layer
@@ -165,7 +178,8 @@ function createMap(earthquakes, plates, volcanos, oilfields) {
     Earthquakes: earthquakes,
     Plates: plates,
     Volcanos: volcanos,
-    Oil_Fields: oilfields
+    Oil_Fields: oilfields,
+	"Income": JusticeMap_income
   };
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load
